@@ -1,0 +1,6 @@
+url=https://login:password@bitbucket.org/repo/name.git
+login=
+email=
+local_branch=dev
+remote_branch=origin/dev
+path=/path/to/project
