@@ -23,17 +23,6 @@ if [[ ! -e "status.txt" ]]; then
 
         cd $path
 
-        config_name=$(git config --global user.name)
-        config_email=$(git config --global user.email)
-
-        if [[ "$config_name" = "" ]]; then
-            git config --global user.name "$login"
-        fi
-
-        if [[ "$config_email" = "" ]]; then
-            git config --global user.email "$email"
-        fi
-
         git config remote.origin.url "$url"
         git remote update
 
