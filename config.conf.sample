@@ -1,6 +1,5 @@
 url=https://login:password@bitbucket.org/repo/name.git
 login=
 email=
-local_branch=master
 remote_branch=origin/master
 path=/path/to/project

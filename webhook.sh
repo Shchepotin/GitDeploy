@@ -38,7 +38,16 @@ if [[ ! -e "status.txt" ]]; then
         git config remote.origin.url "$url"
         git remote update
 
-        local=$(git rev-parse "$local_branch")
+        cd $git_deploy_path
+
+        if [[ ! -e "hash.txt" ]]; then
+            echo "" > hash.txt
+        fi
+
+        local=$(<hash.txt)
+
+        cd $path
+
         remote=$(git rev-parse "$remote_branch")
 
         if [[ "$local" != "$remote" ]]; then
@@ -48,8 +57,11 @@ if [[ ! -e "status.txt" ]]; then
             git commit -m "Deploy"
             git pull -Xtheirs --no-commit
 
-            # Run commands after pull
             cd $git_deploy_path
+            # Save last hash
+            echo "$remote" > hash.txt
+
+            # Run commands after pull
             source ./commands.sh
             cd $path
         fi

@@ -1,3 +1,5 @@
 /.idea
 config.conf
 webhook.log
+status.txt
+hash.txt
