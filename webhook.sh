@@ -63,7 +63,6 @@ if [[ ! -e "status.txt" ]]; then
 
             # Run commands after pull
             source ./commands.sh
-            cd $path
         fi
 
         cd $git_deploy_path
