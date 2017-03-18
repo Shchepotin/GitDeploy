@@ -3,3 +3,4 @@ login=
 email=
 remote_branch=origin/master
 path=/path/to/project
+git=/usr/bin/git

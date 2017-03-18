@@ -23,8 +23,19 @@ if [[ ! -e "status.txt" ]]; then
 
         cd $path
 
-        git config remote.origin.url "$url"
-        git remote update
+        config_name=$("$git" config --global user.name)
+        config_email=$("$git" config --global user.email)
+
+        if [[ "$config_name" = "" ]]; then
+            "$git" config --global user.name "$login"
+        fi
+
+        if [[ "$config_email" = "" ]]; then
+            "$git" config --global user.email "$email"
+        fi
+
+        "$git" config remote.origin.url "$url"
+        "$git" remote update
 
         cd $git_deploy_path
 
@@ -36,14 +47,14 @@ if [[ ! -e "status.txt" ]]; then
 
         cd $path
 
-        remote=$(git rev-parse "$remote_branch")
+        remote=$("$git" rev-parse "$remote_branch")
 
         if [[ "$local" != "$remote" ]]; then
             echo "Start pull..."
 
-            git add .
-            git commit -m "Deploy"
-            git pull -Xtheirs --no-commit
+            "$git" add .
+            "$git" commit -m "Deploy"
+            "$git" pull -Xtheirs --no-commit
 
             cd $git_deploy_path
             # Save last hash
