@@ -5,8 +5,7 @@ datetime=$(date '+%Y-%m-%d %H:%M:%S')
 echo "======================= Start webhook: $datetime ======================= \n"
 
 path_to_source=$(dirname "${BASH_SOURCE[0]}")
-current_path=$(pwd)
-git_deploy_path="$current_path/$path_to_source"
+git_deploy_path="$path_to_source"
 
 cd "$git_deploy_path"
 
