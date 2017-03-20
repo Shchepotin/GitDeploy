@@ -2,8 +2,6 @@
 
 datetime=$(date '+%Y-%m-%d %H:%M:%S')
 
-echo "======================= Start webhook: $datetime ======================="
-
 path_to_source=$(dirname "${BASH_SOURCE[0]}")
 git_deploy_path="$path_to_source"
 
@@ -15,6 +13,7 @@ source ./config.conf
 # Queue.
 #
 if [[ ! -e "status.txt" ]]; then
+    echo "======================= Start webhook: $datetime ======================="
     echo "wait" > status.txt
 
     while [[ "$(<status.txt)" = "wait" ]]
@@ -68,8 +67,8 @@ if [[ ! -e "status.txt" ]]; then
     done
 
     rm -rf status.txt
+
+    echo ""
 else
    echo "wait" > status.txt
 fi
-
-echo ""
