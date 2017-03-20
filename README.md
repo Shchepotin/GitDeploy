@@ -31,6 +31,10 @@ nano config.conf
 
 ## Run
 
+```bash
+cd /path/to/your/web/site
+```
+
 Create `webhook.php` in your project:
 
 ```bash
