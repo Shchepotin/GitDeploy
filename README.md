@@ -39,6 +39,7 @@ nano webhook.php
     
 ```php
 <?php
+
 putenv("HOME=/home/YOUR_USER_NAME"); // Required
 
 exec("nohup sh /path/to/gitdeploy/webhook.sh >> /path/to/gitdeploy/webhook.log 2>&1 &");
