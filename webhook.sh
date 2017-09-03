@@ -56,6 +56,7 @@ if [[ ! -e "status.txt" ]]; then
             git pull -Xtheirs --no-commit
 
             cd $git_deploy_path
+
             # Save last hash
             echo "$remote" > hash.txt
 
