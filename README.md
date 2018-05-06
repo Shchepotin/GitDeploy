@@ -10,7 +10,7 @@ cd ~
 Clone GitDeploy:
 
 ```bash
-git clone https://github.com/Schepotin/GitDeploy.git mygitdeploy
+git clone https://github.com/Shchepotin/GitDeploy.git mygitdeploy
 ```
 
 ```bash
